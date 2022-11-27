@@ -207,7 +207,7 @@ function StartGame () {
     player = new BunnyPlayer(25, 50, 180, 177); 
 
     // drop or fall audio will be played
-    var audio = new Audio('sound/fall.mp3');
+    var audio = new Audio('../sound/fall.mp3');
     audio.play(); 
 
     // start animation when calling a function
@@ -302,7 +302,7 @@ function UpdateGame () {
 function afterCollision(){
 
     // crash audio will be played
-    var audio = new Audio('sound/gameEnd2.wav');
+    var audio = new Audio('../sound/gameEnd2.wav');
     // play the audio
     audio.play(); 
     
