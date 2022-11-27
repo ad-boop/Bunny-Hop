@@ -1,0 +1,202 @@
+/* font for the forms */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
+
+/*styling the card which contains the forms*/
+.container-card{
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card{
+  width: 500px;
+  height: 570px;
+  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.26);
+}
+
+.inner-box{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/*Creating login card and registration card*/
+.card-front, .card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(rgba(230, 142, 70, 0.8),rgba(142, 223, 175, 0.8)),url("../images/login.png");
+  padding: 55px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+
+.card h1{
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/*message which prints on the forms - error or successful submission*/
+#message{
+  background-color: #A53F2B;
+  border-color: #fff;
+  padding: 12px;
+}
+
+/*Styling the input boxes for the form*/
+.input-box{
+  width: 100%;
+  background: transparent;
+  border: 1px solid #fff;
+  margin: 10px 0;
+  height: 32px;
+  border-radius: 20px;
+  border-width: 2px;
+  padding: 20px;
+  box-sizing: border-box;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+/*Styling the placeholder in the input box*/
+::placeholder{
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*Styling the buttons in the form*/
+button.submit-btn, a.btn{
+  color: #000;
+  transition: all .5s ease;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #fff;
+  margin: 25px 0 10px;
+  height: 32px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px; 
+  text-transform: uppercase;
+}
+
+
+/*Hover effect for the buttons in the form*/
+button.submit-btn:hover, a.btn:hover{
+  background-color: #001F3F;
+  color: #fff;
+  border: 2px solid #001F3F;
+}
+
+
+/*Styling the submit button*/
+.submit-btn{
+  position: relative;
+}
+
+.submit-btn::after{
+  content: '\27A8';
+  color: #000;
+  line-height: 32px;
+  font-size: 30px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+}
+
+/*sTLYING THE SPAN TAG*/
+span{
+  font-size:13px;
+  margin-left: 10px;
+  color: #000;
+  font-weight: bold;
+}
+
+.card .btn{
+  margin-top: 5px;
+}
+
+/*sTYLING THE A TAG IN THE CARD*/
+.card a{
+  color: #000;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/*Card display when the buttons are clicked*/
+.card-front.inActive{
+  display:none;
+}
+.card-back{
+  display:none;
+}
+.card-back.active{
+  display:block;
+}
+
+
+.select{
+  padding: 6px;
+}
+
+/*styling the select  dropdown*/
+select{
+  background-color: transparent;
+  padding: 2px;
+  border-radius:50px;
+  border: 1px solid #fff;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+select option{
+  background: rgba(0, 0, 0, 0.3) ;
+}
+
+label{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+#card{
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(rgba(230, 142, 70, 0.8),rgba(142, 223, 175, 0.8)),url("../images/login.png");
+  font-family: 'Shippori Antique', sans-serif;
+}
+
+/*styling the box where the message that user is logged in*/
+#loginPara {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 30px;
+}

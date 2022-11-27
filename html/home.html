@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <!--CSS LINKS-->
+        <link rel="stylesheet" href="../css/style.css">
+        <!--fOR THE ICONS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+        <!--lOGO  FOR THE TAB-->
+        <link rel="icon" type="image/png" href="../images/logo.png">
+  </head>
+
+  <body>
+        <!--Banner- FOR THE NAVBAR AND BODY EXCLUDING THE FOOTER-->
+        <div class="banner">
+            <!--Header which contains logo and nav bar-->
+            <header>
+                <div class="container">
+                    <!--LOGO-->
+                    <div class="logo">
+                        <a href="home.html">
+                            <h3>BUNNY HOP!</h3>
+                        </a>
+                    </div>
+                    
+                    <!--nAVIGATION bAR-->
+                    <nav class="nav-bar">
+                        
+                        <!--lINKS FOR DIFF PAGES-->
+                        <div class="nav-links">
+                            <ul>
+                                <li><a href="home.html" class="is-active">Home</a></li>
+                                <li><a href="game.html">Game</a></li>
+                                <li><a href="tutorial.html">How To Play</a></li>
+                                <li><a href="leaderboard.html">Leader Board</a></li>
+                            </ul>
+                        </div>
+                        
+                        
+                        <!--the HAMBURGER MENU WHEN THE SCREEN DECREASES-->
+                        <input type="checkbox" id="check">
+                        <label for="check" class="checkbtn">
+                            <button  class="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </label>
+                    </nav>
+                </div>
+            </header>
+
+            <!--main content between navbar and footer-->
+            <section class="main-content">
+                <h1>WELCOME TO BUNNY HOP</h1>
+                <p>The Game with No End</p>
+                <br>
+                
+                <!--Message welcoming the logged in user-->
+                <p id="welcomeUser" style="padding: 20px;"></p>
+
+                <div class="simple-text">
+                    <p>Play the world's most Incredible game</p>
+                    <p>And that too for FREE!!</p>
+                </div>
+                
+                
+                <!--Buttons for the guest user-->
+                <div class="userButtons" id="buttons">
+                    <a href='game.html' class="button">Continue as Guest</a>
+
+                    <div class="login">
+                        <p>Already a Member, Sign in</p>
+                        <a href='login.html' class="button">Log In</a>
+                    </div>
+                </div>
+
+                <!--If the logged in user wishes to  sign out-->
+                <p id="logoutMessage" style="padding-top:40px; font-size: 30px;"></p>
+                <div id="logoutButton"></div>
+               
+            </section>
+
+            <!--javascript link-->
+            <script>
+
+                window.onload = checkLogin;//Check to see if user is logged in already
+                function checkLogin(){
+                    if(sessionStorage.loggedInUsername !== undefined){
+                        //Extract details of logged in user
+                        let usrObj = JSON.parse(localStorage[sessionStorage.loggedInUsername]);
+                        
+                        //add a line saying the user  lis logged in
+                        document.getElementById("welcomeUser").innerHTML="Hello "+usrObj.username;
+                        document.getElementById("welcomeUser").style.fontSize="40px";
+
+                        // removing the guest user buttons
+                        document.getElementById("buttons").remove();
+
+                        // adding the signed in user elements
+                        document.getElementById("logoutMessage").innerText="Do you wish to signout?";
+                        document.getElementById("logoutButton").innerHTML="<button onclick='logout()'>Log Out</button>";
+                    }
+                }
+                let cookies = document.cookie;
+
+                
+                //Logs user out
+                function logout(){
+                    sessionStorage.removeItem("loggedInUsername");
+                    location.reload(); // reloads the page
+                }
+            </script>
+        </div>
+
+        
+        <!--Footer which contains social media and copyright info-->
+        <footer class="footer-main">
+            <!-- Info on the left side-->
+            <div class="footer-left">
+                <h3>Bunny Hop</h3>
+                <p class="footer-description">An Interactive and Fun Game. Fun Unlimited.</p>
+                <p class="copyright">Copyright &copy; 2021</p>
+            </div>
+                
+            <!--Info on the center-->
+            <div class="footer-center">
+                <div>
+                    <p><span></span>Contact Us</p>
+                    <br>
+                </div>
+                
+                <!--Phone Number-->
+                <div>
+                    <i class="bi bi-telephone"></i>
+                    <p>+1 234 56789</p>
+                </div>
+                     
+                <!--Email-->
+                <div>
+                    <i class="bi bi-envelope"></i>
+                    <p><a href="mailto:support@company.com">bunnyhop@email.com</a></p>
+                </div>
+                
+            </div>
+                
+            <!--Info on the right side-->
+            <div class="footer-right"> 
+                <p class="creator">
+                    <span>Created by</span>
+                    Adora Naomi Fernandes
+                </p>
+                
+                <!--Social Media Account-->
+                <div class="footer-icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>           
+                </div>
+                
+            </div>
+                
+        </footer>
+
+
+        <!--javascript link-->
+        <script src="../js/main.js">
+
+            window.onload = checkLogin;//Check to see if user is logged in already
+            function checkLogin(){
+                if(sessionStorage.loggedInUsername !== undefined){
+                    //Extract details of logged in user
+                    let usrObj = JSON.parse(localStorage[sessionStorage.loggedInUsername]);
+                    
+                    //add a line saying the user  lis logged in
+                    
+                    document.getElementsById('userButtons').remove();
+                    document.getElementById("welcome-user").innerHTML="Hello "+usrObj.username;
+                }
+            }
+            let cookies = document.cookie;
+        </script>
+  </body>
+</html>

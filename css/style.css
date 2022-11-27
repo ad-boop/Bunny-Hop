@@ -1,0 +1,535 @@
+/*Importing fonts from Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+/*Choosing the root color*/
+:root{
+  --primary:#e74c3c;
+}
+
+
+/*For all the elements*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*Styling the body*/
+body{
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/*Navigation bar styling*/
+/*Container for nav-bar*/
+.container, nav{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding:  20px;
+}
+
+/*Logo styling*/
+.logo h3{
+  color: var(--primary);
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  line-height:1.3;
+  padding: 0px 20px;
+}
+
+
+/*Styling the hamburger menu*/
+#check{
+  display: none;
+}
+
+.hamburger{
+  display: block;
+  position: relative;
+  z-index: 1;
+
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hamburger span{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: black;
+  border-radius: 6px;
+  z-index: 1;
+
+  transform-origin: 0 0;
+  transition: 0.4s;
+}
+
+/*making the second line in the hamburger color changed when hovered*/
+.hamburger:hover span:nth-child(2){
+  transform: translateX(10px);
+  background-color: var(--primary);
+}
+
+/*Rotating the lines of the hamburger to create an X*/
+.hamburger.is-active span:nth-child(1){
+  transform: translate(0px,-2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2){
+  opacity: 0;
+  transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3){
+  transform: translate(-3px,3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span{
+background-color: var(--primary);
+}
+
+
+
+/*For the nav bar*/
+.nav-links{
+  display: none;
+}
+
+/*Nav links styling*/
+.container li,a {
+  /*decorating the nav links*/
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  color: #0A122A;
+}
+
+nav ul{
+  float: right;
+}
+
+
+/*Styling the links*/
+.nav-links li{
+  /*styling the nav links inline*/
+  list-style: none;
+  display: inline-block;
+  padding: 0px 20px;
+  text-transform: uppercase;
+}
+
+
+.nav-links li a {
+  border-bottom: 2px solid #804E49;
+  box-shadow: inset 0 -4px 0 #e8d0b3;
+  color: inherit;
+  transition: background 0.1s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: all 0.3s ease 0s;
+}
+
+
+/*Hover effect for the  nav bar links*/
+.nav-links li a:hover {
+  color: #804E49;
+  background: #e8d0b3;
+}
+
+.nav-links a.is-active{
+  background-color:var(--primary);
+  border-radius: 99px;
+  padding: 8px 16px;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+}
+
+/*User profile styling*/
+a.profile .bi.bi-person-circle{
+  font-size: 45px;
+  cursor: pointer;
+  padding: 20px;
+  text-decoration:none;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+
+/*iF THE SCREEN BECOMES SMALLER*/
+@media (min-width:1000px) {
+  .hamburger{
+    display: none;
+  }
+  .nav-links{
+    display: block;
+    z-index: 1;
+  }
+}
+
+@media (max-width:950px) {
+  .hamburger{
+    display: block;
+  }
+
+  .nav-links{
+    display: none;
+    width: 100%;
+  }
+
+  .nav-bar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links ul{
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    
+    background-color: #804E49;
+    top: 80px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .nav-bar li{
+    display: block;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .nav-links li a{
+    padding: .5rem 1rem;
+    font-size: 20px;
+  }
+  .nav-links.is-active{
+    display:flex;
+  }
+
+  a:hover, a.is-active{
+    background: none;
+    color: #e8d0b3;
+  }
+}
+
+
+/*the section between the nav-bar and the footer */
+/*MAIN CONTENT */
+.main-content{
+  width: 100%;
+  text-align: center;
+  color: #0A122A;
+  overflow: hidden;
+  display: block;
+  padding-top: 12px;
+  /*padding-bottom: 100px; /* height of your footer */
+}
+  
+
+.main-content h1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+/*Styling the game placeholder and the score div box*/
+.game .score{
+  background-color: #804E49;
+  border: 2px solid #0A122A;
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  left: 73%;
+  position: relative;
+  z-index: -1;
+}
+
+.game img{
+  width: 900px;
+}
+
+/*sTLYING THE TEXT BOX FOR THE GAME TUTORIAL*/
+.text-box {
+  position: static;
+  top: 20px;
+  bottom: 5px;
+  right: 10px;
+  left: 10px;
+  background-color: black;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: bold;
+  font-size: 26px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: linear-gradient() rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.5);
+  width: 1200px;
+  margin: auto;
+}
+
+
+.text-box ul> li{
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+
+/*Styling the main content in all the pages*/
+.main-content > p{
+  color: #804E49;
+}
+
+.main-content p{
+  font-family: 'IM Fell English SC', serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/*Styling the contents in home page*/
+.simple-text p{
+  padding: 25px 0px 25px 0px;
+  font-family: 'Russo One', sans-serif;
+}
+
+/*Buttons styling in the main content section*/
+a.button, button {
+  display: inline-block;
+  padding: 0.9em 1.7em;
+  margin: 20px 10px;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  background-color: #698F3F;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Kanit', sans-serif;
+  font-size: 25px;
+  color: #FBFAF8;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+/*Styling the login button*/
+.login{
+  padding: 22px;
+}
+
+/*Hover for the buttons in the home page*/
+a.button:hover, button:hover {
+  border-color: #0A122A;
+  border-width: 5px;
+}
+
+/*Styling the leaderboard table*/
+table {
+  font-family: arial, sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  
+  border-collapse: collapse;
+  margin: auto;
+  width: 92%;
+}
+
+th{
+  font-size: 35px;
+  font-weight: bold;
+  background-color: #698F3F;
+}
+td, th {
+  border: 5px solid rgb(10, 18, 42);
+  text-align: center;
+  padding: 15px;
+}
+
+/*scrollable table*/
+#table-ranking{
+  height:399px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+
+tr:nth-child(even) {
+  background-color: rgb(221, 221, 221);
+}
+
+tr:hover { /*hover over the rows*/
+  background-image: linear-gradient(#e74c3c, #a8544a);
+  /*background-color: #e74c3c;*/
+}
+
+/*styling the FOOTER*/
+.footer-main{
+	background-color: #804E49;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 10px 10px;
+	margin-top: 70px;
+}
+
+.footer-main .footer-left,
+.footer-main .footer-center,
+.footer-main .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.footer-main .footer-left{
+	width: 40%;
+}
+
+.footer-main h3{
+	color:  var(--primary);
+	font: normal 36px 'Oswald', sans-serif;
+	margin: 0;
+}
+
+
+.footer-main .footer-description{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-main .footer-description a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-main .copyright{
+	color:  #E7DECD;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.footer-main .footer-center{
+	width: 35%;
+}
+
+.footer-main .footer-center i{
+	background-color:  #0A122A;
+	color: #E7DECD;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-main .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-main .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-main .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-main .footer-center p a{
+	color:  var(--primary);
+	text-decoration: none;;
+}
+
+.footer-main .footer-right{
+	width: 20%;
+}
+
+.footer-main .creator{
+	line-height: 20px;
+	color:  #E7DECD;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-main .creator span{
+	display: block;
+	color:  #E7DECD;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-main .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-main .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #0A122A;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #E7DECD;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+/*Styling footer when screen is around 880 px*/
+@media (max-width: 880px) {
+  /*changing the styling for whole footer*/
+	.footer-main{
+		font: bold 14px sans-serif;
+	
+	}
+
+  /*changing the styling for all the sub -sections in the footer*/
+	.footer-main .footer-left,
+	.footer-main .footer-center,
+	.footer-main .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+  /*changing the margin of center part of the footer*/
+	.footer-main .footer-center i{
+		margin-left: 0;
+	}
+}

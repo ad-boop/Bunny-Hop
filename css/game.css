@@ -1,0 +1,73 @@
+/* Styling for the whole page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/*movement of the background in the game*/
+@keyframes slideleft {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0%;
+    }
+}
+
+@-webkit-keyframes slideleft {
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0%;
+    }
+}
+
+
+/*canvas where the game will be played*/
+canvas {
+    display: inline;
+    background-image: url('../images/gameBg2.png');
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: slideleft 1000s infinite linear;
+    -webkit-animation: slideleft 1000s infinite linear;
+    width:800px;
+    height:450px;
+}
+
+/*the div box where the game will be placed*/
+.game{
+    border: 5px solid black;
+    width:810px;
+    height:460px;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 50px;
+}
+
+/*the container for the game*/
+.container{
+    padding:36px;
+}
+
+
+/* div box next to the game which contains the start button and score tell */
+#game-stuff{
+    background-color: #698F3F;
+    border: 5px solid black;
+    height: 460px;
+    width: 450px;
+    align-items: center;
+}
+
+/* score wll be displayed in the game stuff div */
+.score-tell{
+    border: 5px solid black;
+    width: 190px;
+    height: 150px;
+    margin: auto;
+    padding:20px;
+    background-color: blanchedalmond;
+}
